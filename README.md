@@ -50,3 +50,12 @@ Example request with curl:
 ```
 curl -v -H 'Api-Key: testing4' http://localhost:8081/sample
 ```
+
+### JAXRS Module
+
+This module contains a generic filter compatible with JAX-RS 2.1. It is tested with the Jerser which is the 
+reference implementation.
+
+Additionally includes a JAX-RS feature that adds rate limit to any resource method annotated with
+`RateLimited`. When using with Jersey Autodiscovery enabled, the feature will be automatically registered,
+otherwise the class `RateLimiterAnnotationFeature` needs to be registered in the JAX-RS framework.
