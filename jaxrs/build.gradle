@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    api project(':core')
+    implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
+    implementation group: 'org.glassfish.jersey.core', name: 'jersey-common', version: libVersions['jersey']
+
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: libVersions['logback']
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: libVersions['assertj']
+    testImplementation group: 'org.awaitility', name: 'awaitility', version: libVersions['awaitility']
+    testImplementation group: 'org.glassfish.jersey.containers', name: 'jersey-container-jdk-http',
+            version: libVersions['jersey']
+    testImplementation group: 'org.glassfish.jersey.inject', name: 'jersey-hk2', version: libVersions['jersey']
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: libVersions['junit-jupiter']
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: libVersions['mockito']
+
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: libVersions['junit-jupiter']
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+}

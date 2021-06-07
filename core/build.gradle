@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: libVersions['slf4j']
+
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: libVersions['logback']
+    testImplementation group: 'io.vavr', name: 'vavr', version: libVersions['vavr']
+    testImplementation group: 'org.apache.commons', name: 'commons-lang3', version: libVersions['commons-lang3']
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: libVersions['assertj']
+    testImplementation group: 'org.awaitility', name: 'awaitility', version: libVersions['awaitility']
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: libVersions['junit-jupiter']
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: libVersions['mockito']
+
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: libVersions['junit-jupiter']
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+}

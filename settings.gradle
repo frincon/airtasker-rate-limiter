@@ -1,0 +1,6 @@
+rootProject.name = 'airtasker-rate-limiter'
+
+include 'core'
+include 'jaxrs'
+include 'jaxrs-sample-app'
+
